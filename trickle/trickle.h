@@ -44,6 +44,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #define __packed_gcc __attribute__((packed))
 
+// UINT32_MAX from stdint.h
 #define TIMER_OLDER_THAN(time, ref) (((uint32_t) (time)) - ((uint32_t) (ref)) > UINT32_MAX / 2)
 
 #define TRICKLE_C_DISABLED (0xFF)

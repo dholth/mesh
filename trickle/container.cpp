@@ -21,6 +21,16 @@
  * - Reprioritize item
  */
 
+/**
+ * Compare a wrapping timer
+ */
+bool timer_older_than(uint32_t time, uint32_t ref) {
+    // essentially, is the result negative?
+    // true if time is older than ref
+    return time < ref;
+    // return (time - ref) > UINT32_MAX / 2;
+}
+
 // A short counted string
 typedef struct p_string
 {
@@ -139,7 +149,7 @@ int fill = 0;
 Container &Container::operator=(const Container &other)
 {
     this->value = other.value;
-    if (this->value != NULL)
+    if (this->value != nullptr)
     {
         this->value->index = std::distance(foobars.begin(), this);
     }
@@ -245,7 +255,7 @@ void reprioritize(Container &c)
 int main(int argc, char **argv)
 {
 
-    for (int i = 0; (i < argc) && (fill < NFOOBARS); i++)
+    for (int i = 1; (i < argc) && (fill < NFOOBARS); i++)
     {
         const char *key;
         if (i < argc)
