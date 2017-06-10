@@ -5,7 +5,7 @@ StateMachine::StateMachine(unsigned char maxStates) :
     _maxStates(maxStates),
     currentState(0),
     _eventGenerated(false),
-    _pEventData(NULL)
+    _pEventData(0)
 {
 }
 
