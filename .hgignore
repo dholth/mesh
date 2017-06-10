@@ -1,7 +1,6 @@
 syntax:glob
 *.*-info
 *.a
-*.c
 *.dylib
 *.o
 *.orig
@@ -12,6 +11,7 @@ syntax:glob
 *.txt
 *~
 .*
+_*.c
 a.out
 kvmesh
 build
