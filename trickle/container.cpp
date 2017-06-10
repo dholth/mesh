@@ -127,9 +127,7 @@ Contained **c_find(p_string *key) {
 }
 
 /// Find with key matching element or nullptr if not found
-Contained *c_find(Contained *element) {
-  return *c_find(element->get_key());
-}
+Contained *c_find(Contained *element) { return *c_find(element->get_key()); }
 
 /*
  * Insert element into container, maintaining heap, sorted invariants
@@ -175,6 +173,10 @@ bool c_add(Contained *element) {
 }
 
 bool c_remove(Contained **it) {
+  // assert element in container...
+  std::pop_heap(foobars.begin() + (*it)->index, foobars.begin() + fill,
+                LessThanByPriority());
+
   auto begin = foobars_by_key.begin();
   auto end = begin + fill;
   // XXX assert *it in array
@@ -184,10 +186,6 @@ bool c_remove(Contained **it) {
 }
 
 bool c_remove(Contained *element) {
-  // assert element in container...
-  std::pop_heap(foobars.begin() + element->index, foobars.begin() + fill,
-                LessThanByPriority());
-
   auto begin = foobars_by_key.begin();
   auto end = begin + fill;
   auto it = std::lower_bound(begin, end, element, LessThanString());
