@@ -22,8 +22,6 @@ int main(int argc, char **argv) {
 
   print_it();
 
-  printf("\n");
-
   std::make_heap(foobars.begin(), foobars.begin() + fill, LessThanByPriority());
 
   print_it();
@@ -42,4 +40,13 @@ int main(int argc, char **argv) {
   printf("sizeof trickle_t %lu\n", sizeof(trickle_t));
   printf("sizeof mesh_payload %lu\n", sizeof(mesh_payload));
   printf("sizeof p_string %lu\n", sizeof(p_string));
+  printf("\n");
+  for (int i = fill; i>0; i--) {
+    auto value = foobars[0].value;
+    printf("i %2d ti %2u pri %2d ", i, value->index, value->get_priority());
+    std::cout << value->get_key() << std::endl;
+
+    std::pop_heap(foobars.begin(), foobars.begin() + i, LessThanByPriority());
+  }
+  printf("\n");
 }
