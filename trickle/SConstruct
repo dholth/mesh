@@ -3,6 +3,8 @@ env.Append(CCFLAGS=['-g'])
 env.Append(CXXFLAGS=['-std=c++11'])
 
 tlib = env.SharedLibrary('trickle', ['trickle.c', 'rand.c'])
-container = env.Program('container', ['container.cpp'])
+container = env.Program('container', ['test_container.cpp'])
 
 mac = env.Program('mac', ['nrfmac.cpp', 'state/StateMachine.cpp'])
+
+mesh = env.Program('mesh', ['mesh.cpp', 'container.cpp', tlib])

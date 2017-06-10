@@ -35,6 +35,10 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <stdint.h>
 #include <stdbool.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
 * @file Implementation of Trickle algorithm described in IETF RFC6206
 *   http://tools.ietf.org/html/rfc6206
@@ -117,3 +121,7 @@ void trickle_enable(trickle_t* trickle);
 *   considered for transmission.
 */
 bool trickle_is_enabled(trickle_t* trickle);
+
+#ifdef __cplusplus
+}
+#endif
