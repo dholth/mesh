@@ -1,5 +1,6 @@
 // Mesh operations
 
+#include "meshtainer.h"
 #include "container.h"
 #include "nrfmac.h"
 #include "trickle.h"
@@ -87,6 +88,10 @@ int main(int argc, char **argv) {
   payload->len = sizeof(mesh_payload);
   std::cout << "With empty key OK? " << kvmesh::check_packet(buf, sizeof(mesh_payload))
             << "\n";
+
+  auto m = Meshtainer<8>{};
+
+  std::cout << "Meshtainer size is " << sizeof(m) << "\n";
 
   return 0;
 }
